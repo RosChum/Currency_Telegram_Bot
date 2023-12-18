@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=currency_crypto
+    username: postgres
+    password: skillbox
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        hbm2ddl:
+          auto: none
+        default_schema: currency_crypto
+
+telegram:
+  bot:
+    token: 5907758451:AAFVEKHETINEWm_ao57Nyug_lzcmb-oJiJE
+    username: Cur_test_work_bot
+
+binance:
+  api:
+    getPrice: https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT
+
+logging:
+  level:
+    root: info
