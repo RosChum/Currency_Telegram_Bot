@@ -5,6 +5,12 @@ spring:
     username: postgres
     password: skillbox
 
+  liquibase:
+    change-log: classpath:db\changelog_init.xml
+    default-schema: currency_crypto
+    drop-first: false
+    enabled: true
+
   jpa:
     properties:
       hibernate:
