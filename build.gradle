@@ -34,6 +34,8 @@ dependencies {
     implementation "org.telegram:telegrambots:$telegrambotsVersion"
     implementation "org.telegram:telegrambotsextensions:$telegrambotsVersion"
 
+    implementation 'org.liquibase:liquibase-core'
+
     implementation "ch.qos.logback:logback-classic:$logbackVersion"
     implementation "ch.qos.logback:logback-core:$logbackVersion"
 
