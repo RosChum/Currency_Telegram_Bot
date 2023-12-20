@@ -29,6 +29,9 @@ binance:
   api:
     getPrice: https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT
 
+frequency-course-updates: 120000
+frequency-send-notification: 600000
+
 logging:
   level:
     root: info

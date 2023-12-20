@@ -3,6 +3,7 @@ package com.skillbox.cryptobot.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.UUID;
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Table(name = "subscribers")
+@ToString
 public class Subscriber {
 
     @Id

@@ -3,8 +3,6 @@ package com.skillbox.cryptobot.service;
 import com.skillbox.cryptobot.client.BinanceClient;
 import com.skillbox.cryptobot.entity.Subscriber;
 import com.skillbox.cryptobot.repository.SubscriberRepository;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -42,8 +40,13 @@ public class CryptoCurrencyService {
 
     public void updateSubscribe(Long telegramId, String value) {
         Subscriber subscriber = subscriberRepository.findByIdTelegram(telegramId);
-        subscriber.setPriceSubscribe(Double.valueOf(value));
+        subscriber.setPriceSubscribe(value != null ? Double.valueOf(value.replace(",", ".")) : null);
         subscriberRepository.save(subscriber);
+
+    }
+
+    public Double getPriseSubscribe(Long telegramId) {
+        return subscriberRepository.findByIdTelegram(telegramId).getPriceSubscribe();
     }
 
 }
