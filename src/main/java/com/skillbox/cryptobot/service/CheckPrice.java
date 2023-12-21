@@ -29,7 +29,7 @@ public class CheckPrice {
     @Scheduled(fixedRateString = "${frequency-course-updates}")
     public void checkPriceBitcoin() {
         try {
-            subscribers = subscriberRepository.findAllByPriceSubscribeAfter(client.getBitcoinPrice());
+            subscribers = subscriberRepository.findAllByPriceSubscribeBefore(client.getBitcoinPrice());
             log.info("Start checkPriceBitcoin");
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -43,16 +43,17 @@ public class CheckPrice {
         log.info("Start sendNotification");
         SendMessage sendMessage = new SendMessage();
         subscribers.forEach(subscriber -> {
-            sendMessage.setChatId(subscriber.getIdTelegram());
             try {
-                sendMessage.setText("Пора покупать биткоин, цена биткоина " + TextUtil.toString(client.getBitcoinPrice()) + " USD");
-                absSender.execute(sendMessage);
+                Double bitcoinPrice = client.getBitcoinPrice();
+                if (subscriber.getPriceSubscribe() < bitcoinPrice) {
+                    sendMessage.setChatId(subscriber.getIdTelegram());
+                    sendMessage.setText("Пора покупать биткоин, цена биткоина " + TextUtil.toString(bitcoinPrice) + " USD");
+                    absSender.execute(sendMessage);
+                }
             } catch (IOException | TelegramApiException e) {
                 throw new RuntimeException(e);
             }
         });
-
     }
-
 
 }

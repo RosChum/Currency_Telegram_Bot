@@ -11,5 +11,5 @@ import java.util.UUID;
 public interface SubscriberRepository extends JpaRepository<Subscriber, UUID> {
 
     Subscriber findByIdTelegram(Long idTelegram);
-    List<Subscriber> findAllByPriceSubscribeAfter(Double price);
+    List<Subscriber> findAllByPriceSubscribeBefore(Double price);
 }
