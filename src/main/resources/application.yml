@@ -1,9 +1,12 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=currency_crypto
-    username: postgres
-    password: skillbox
+    url: jdbc:postgresql://localhost:5432/crypto_bot
+    username: root
+    password: root
+    hikari:
+      schema: currency_crypto
+      connection-init-sql: CREATE SCHEMA IF NOT EXISTS currency_crypto
 
   liquibase:
     change-log: classpath:db\changelog_init.xml
@@ -22,7 +25,7 @@ spring:
 
 telegram:
   bot:
-    token: 5907758451:AAFVEKHETINEWm_ao57Nyug_lzcmb-oJiJE
+    token: 5907758451:AAE8Wh6DWZF-Ya_Zm6Mq9VOTU_ztaqHwobI
     username: Cur_test_work_bot
 
 binance:

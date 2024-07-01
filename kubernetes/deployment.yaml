@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: crypto_bot
+spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: crypto_bot
+    template:
+      metadata:
+        labels:
+          app: crypto_bot
+      spec:
+        containers:
+          - name: crypto_bot
+            image: rost1487/crypto_bot:latest
+            ports:
+              - containerPort: 8080
