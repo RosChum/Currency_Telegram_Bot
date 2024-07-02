@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Set up Docker
-        uses: actions/setup-docker@v4
+        uses: actions/setup-docker@v2
 
       - name: Build Docker image
         run: docker build -t rost1487/crypto_bot:latest
