@@ -40,7 +40,7 @@ LABEL authors="Rost"
 #ENTRYPOINT ["java","-jar","/app.jar"]
 
 
-ARG JAR_FILE=build/libs/cryptoBot-0.0.1-SNAPSHOT-plain.jar
+ARG JAR_FILE=build/libs/*.jar
 
 #RUN #mkdir -p /app
 
@@ -48,7 +48,7 @@ ARG JAR_FILE=build/libs/cryptoBot-0.0.1-SNAPSHOT-plain.jar
 #
 COPY ${JAR_FILE} cryptoBot.jar
 #COPY build/libs/cryptoBot-0.0.1-SNAPSHOT-plain.jar cryptoBot.jar
-#WORKDIR /app
+WORKDIR /app
 EXPOSE 8080
 #CMD ["java", "-jar", "cryptoBot.jar"]
 
