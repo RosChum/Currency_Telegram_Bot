@@ -44,11 +44,12 @@ ARG JAR_FILE=build/libs/*.jar
 
 RUN mkdir -p /app
 
-WORKDIR /app
+
 #
-COPY ${JAR_FILE} /app/ryptoBot.jar
+COPY ${JAR_FILE} cryptoBot.jar
 #COPY build/libs/cryptoBot-0.0.1-SNAPSHOT.jar cryptoBot.jar
+WORKDIR /app
 EXPOSE 8080
 #CMD ["java", "-jar", "cryptoBot.jar"]
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-jar","/cryptoBot.jar"]
