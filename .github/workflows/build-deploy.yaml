@@ -55,5 +55,5 @@ jobs:
 
 
       - name: Deploy to Kubernetes
-        run: kubectl apply -f kubernetes/
+        run: kubectl apply -f kubernetes/ --validate=false
 #            kubectl rollout restart deployment/crypto_bot
