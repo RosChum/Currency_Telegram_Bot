@@ -58,6 +58,6 @@ jobs:
              KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
 
       - name: Deploy to Kubernetes
-        run:
+        run: kubectl --kubeconfig= ${{ secrets.KUBE_CONFIG_BASE64_DATA }} | base64 --decode
             kubectl apply -f kubernetes/ --validate=false
 #            kubectl rollout restart deployment/crypto_bot
