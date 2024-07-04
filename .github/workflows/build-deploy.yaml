@@ -52,20 +52,18 @@ jobs:
 #      - name: Push Docker image
 #        run: docker push rost1487/crypto_bot:latest
 
-      - name: Deploy to Kubernetes
+      - name: To Kubernetes
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
         with:
           args: get pods
-        run:
-          kubectl apply -f kubernetes/ --validate=false
+
 #      - name: deploy to cluster
 #        uses: ghostzero/kubectl@v1
 #        env:
 #             KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
 
-#      - name: Deploy to Kubernetes
-#        run: kubectl ${{ secrets.KUBE_CONFIG_BASE64_DATA }} | base64 --decode
-#          kubectl apply -f kubernetes/ --validate=false
+      - name: Deploy to Kubernetes
+        run: kubectl apply -f kubernetes/ --validate=false
 #            kubectl rollout restart deployment/crypto_bot
