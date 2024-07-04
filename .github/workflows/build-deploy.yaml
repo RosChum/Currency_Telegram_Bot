@@ -71,7 +71,7 @@ jobs:
         run: |
             kubectl version
             kubectl apply -f kubernetes/
-
+            kubectl rollout restart deployment/crypto-bot
 
 #      - name: deploy to cluster
 #        uses: ghostzero/kubectl@v1
