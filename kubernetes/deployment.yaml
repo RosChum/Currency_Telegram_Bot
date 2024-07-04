@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: crypto_bot
+    name: crypto-bot
 spec:
     replicas: 1
     selector:
       matchLabels:
-        app: crypto_bot
+        app: crypto-bot
     template:
       metadata:
         labels:
-          app: crypto_bot
+          app: crypto-bot
       spec:
         containers:
           - name: crypto_bot

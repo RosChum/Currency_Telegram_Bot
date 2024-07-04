@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: crypto_bot
+    name: crypto-bot
 spec:
     selector:
-      app: crypto_bot
+      app: crypto-bot
     ports:
       - protocol: TCP
         port: 80
