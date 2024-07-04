@@ -59,10 +59,18 @@ jobs:
 #        with:
 #          args: get pods
 
-      - name: Create/Modify deployment
-        uses: actions/kubectl-alpine@v2
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+
+
+      - name: Install kubectl
+        uses: qgxpagamentos/kubectl-set@v1
+        with:
+            base64-kube-config: ${{ secrets.KUBECONFIG }}
+            kubectl-version: v1.22.5
+
+      - name: Deploy Kubernetes cluster Service/Deployment
+        run: |
+            kubectl version
+            kubectl apply -f deployment/kubernetes
 
 
 #      - name: deploy to cluster
