@@ -62,7 +62,7 @@ jobs:
       - name: Create/Modify deployment
         uses: actions/kubectl-alpine@v2
         env:
-          KUBECONFIG: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
 
 
 #      - name: deploy to cluster
